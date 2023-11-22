@@ -1,7 +1,18 @@
+import java.util.Scanner;
+
 public class MultiString {
     public static void main(String[] args) {
-        String num1 = args[0];
-        String num2 = args[1];
+        String num1 = "";
+        String num2 = "";
+        System.out.println("");
+        System.out.println("===========================");
+        System.out.println("Multiply two numbers");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Input first number: ");
+        num1 = sc.nextLine();
+        System.out.print("Input second number: ");
+        num2 = sc.nextLine();
+        sc.close();
         check(num1, num2);
         int[] firstNum = new int[num1.length()];
         int[] secondNum = new int[num2.length()];
@@ -48,7 +59,10 @@ public class MultiString {
         for (int i = 0; i <= count; i++) {
             out = Integer.toString(arr[i]) + out;
         }
-        System.out.println(out);
+        System.out.println("");
+        System.out.println("Result is: " + out);
+        System.out.println("===========================");
+        System.out.println("");
     }
 
     // multi each unit of first number with the whole second number
