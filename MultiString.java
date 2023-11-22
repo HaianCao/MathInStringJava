@@ -2,17 +2,33 @@ public class MultiString {
     public static void main(String[] args) {
         String num1 = args[0];
         String num2 = args[1];
-        if (num1.length() < num2.length()) {
-            String temp = num1;
-            num1 = num2;
-            num2 = temp;
-        }
+        check(num1, num2);
         int[] firstNum = new int[num1.length()];
         int[] secondNum = new int[num2.length()];
         inputArray(firstNum, num1);
         inputArray(secondNum, num2);
         int[] result = multiString(firstNum, secondNum);
         output(result);
+    }
+
+    public static void check(String num1, String num2) {
+        if (num1.length() < num2.length()) {
+            String temp = num1;
+            num1 = num2;
+            num2 = temp;
+        }
+        if (num1.length() == 1) {
+            if (Integer.parseInt(num1) == 0) {
+                System.out.println(0);
+                System.exit(0);
+            }
+        }
+        if (num2.length() == 1) {
+            if (Integer.parseInt(num2) == 0) {
+                System.out.println(0);
+                System.exit(0);
+            }
+        }
     }
 
     // input string into an array
