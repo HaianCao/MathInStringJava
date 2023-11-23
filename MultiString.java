@@ -27,11 +27,6 @@ public class MultiString {
     }
 
     public static void check(String num1, String num2) {
-        if (num1.length() < num2.length()) {
-            String temp = num1;
-            num1 = num2;
-            num2 = temp;
-        }
         if (num1.length() == 1) {
             if (Integer.parseInt(num1) == 0) {
                 System.out.println(0);

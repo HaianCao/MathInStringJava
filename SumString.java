@@ -1,32 +1,60 @@
+import java.util.Scanner;
+
 public class SumString {
     public static void main(String[] args) {
-        System.out.println(sumString(args[0], args[1]));
+        String[] num = { "", "" };
+        inputString(num);
+        int length = Math.max(num[0].length(), num[1].length());
+        int[] firstNum = new int[length];
+        int[] secondNum = new int[length];
+        inputArray(firstNum, num[0]);
+        inputArray(secondNum, num[1]);
+        int[] result = new int[length + 1];
+        result = sumaryString(firstNum, secondNum);
+        output(result);
     }
 
-    public static String sumString(String a, String b) {
-        // Check if length of string a less than string b then swap 2 string
-        if (b.length() > a.length()) {
-            String temp = a;
-            a = b;
-            b = temp;
+    public static void inputString(String[] num) {
+        System.out.println("");
+        System.out.println("=========================");
+        System.out.println("Sumary two numbers");
+        String[] position = { "first", "second" };
+        Scanner sc = new Scanner(System.in);
+        for (int i = 0; i < num.length; i++) {
+            System.out.print("Print the " + position[i] + " number: ");
+            num[i] = sc.nextLine();
         }
+        sc.close();
+    }
+
+    public static void inputArray(int[] arr, String num) {
+        for (int i = 0; i < num.length(); i++) {
+            arr[i] = Integer.parseInt(Character.toString(num.charAt(num.length() - 1 - i)));
+        }
+    }
+
+    public static void output(int[] num) {
+        String out = "";
+        int end = num.length;
+        if (num[end - 1] == 0) {
+            end -= 1;
+        }
+        for (int i = 0; i < end; i++) {
+            out = num[i] + out;
+        }
+        System.out.println("");
+        System.out.println("Result is: " + out);
+    }
+
+    public static int[] sumaryString(int[] num1, int[] num2) {
         int carry = 0;
-        String result = "";
-        int n1 = a.length();
-        int n2 = b.length();
-        // Reverse 2 string
-        a = new StringBuilder(a).reverse().toString();
-        b = new StringBuilder(b).reverse().toString();
-        // Add string "0" to string b so that it will have the same length as string a
-        for (int i = 1; i <= n1 - n2; i++) {
-            b += "0";
-        }
-        for (int i = 0; i <= n1 - 1; i++) {
-            int sum = Integer.parseInt(String.valueOf(a.charAt(i)))
-                    + Integer.parseInt(String.valueOf(b.charAt(i))) + carry;
+        int[] result = new int[Math.max(num1.length, num2.length) + 1];
+        for (int i = 0; i < num1.length; i++) {
+            int sum = num1[i] + num2[i] + carry;
+            result[i] = sum % 10;
             carry = sum / 10;
-            result += Integer.toString(sum % 10);
         }
-        return new StringBuilder(result).reverse().toString();
+        result[result.length - 1] = carry;
+        return result;
     }
 }
