@@ -16,7 +16,7 @@ public class SumString {
 
     public static void inputString(String[] num) {
         System.out.println("");
-        System.out.println("=========================");
+        System.out.println("===========================");
         System.out.println("Sumary two numbers");
         String[] position = { "first", "second" };
         Scanner sc = new Scanner(System.in);
@@ -44,6 +44,8 @@ public class SumString {
         }
         System.out.println("");
         System.out.println("Result is: " + out);
+        System.out.println("===========================");
+        System.out.println("");
     }
 
     public static int[] sumaryString(int[] num1, int[] num2) {
