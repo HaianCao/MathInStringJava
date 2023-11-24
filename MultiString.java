@@ -1,30 +1,28 @@
-import java.util.Scanner;
 
 public class MultiString {
-    public static void main(String[] args) {
-        String[] num = { "", "" };
-        inputString(num);
+    public String generate(String num1, String num2) {
+        String[] num = { num1, num2 };
         check(num[0], num[1]);
         int[] firstNum = new int[num[0].length()];
         int[] secondNum = new int[num[1].length()];
         inputArray(firstNum, num[0]);
         inputArray(secondNum, num[1]);
         int[] result = multiString(firstNum, secondNum);
-        output(result);
+        return output(result);
     }
 
-    public static void inputString(String[] num) {
-        System.out.println("");
-        System.out.println("===========================");
-        System.out.println("Multiply two numbers");
-        String[] position = { "first", "second" };
-        Scanner sc = new Scanner(System.in);
-        for (int i = 0; i < num.length; i++) {
-            System.out.print("Input the " + position[i] + " number: ");
-            num[i] = sc.nextLine();
-        }
-        sc.close();
-    }
+    // public static void inputString(String[] num) {
+    // System.out.println("");
+    // System.out.println("===========================");
+    // System.out.println("Multiply two numbers");
+    // String[] position = { "first", "second" };
+    // Scanner sc = new Scanner(System.in);
+    // for (int i = 0; i < num.length; i++) {
+    // System.out.print("Input the " + position[i] + " number: ");
+    // num[i] = sc.nextLine();
+    // }
+    // sc.close();
+    // }
 
     public static void check(String num1, String num2) {
         if (num1.length() == 1) {
@@ -49,7 +47,7 @@ public class MultiString {
     }
 
     // reverse the array and output the result
-    public static void output(int[] arr) {
+    public static String output(int[] arr) {
         String out = "";
         int count = arr.length - 1;
         while (arr[count] == 0) {
@@ -58,10 +56,7 @@ public class MultiString {
         for (int i = 0; i <= count; i++) {
             out = Integer.toString(arr[i]) + out;
         }
-        System.out.println("");
-        System.out.println("Result is: " + out);
-        System.out.println("===========================");
-        System.out.println("");
+        return out;
     }
 
     // multi each unit of first number with the whole second number

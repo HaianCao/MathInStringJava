@@ -1,9 +1,6 @@
-import java.util.Scanner;
-
 public class SumString {
-    public static void main(String[] args) {
-        String[] num = { "", "" };
-        inputString(num);
+    public String generate(String num1, String num2) {
+        String[] num = { num1, num2 };
         int length = Math.max(num[0].length(), num[1].length());
         int[] firstNum = new int[length];
         int[] secondNum = new int[length];
@@ -11,21 +8,21 @@ public class SumString {
         inputArray(secondNum, num[1]);
         int[] result = new int[length + 1];
         result = sumaryString(firstNum, secondNum);
-        output(result);
+        return output(result);
     }
 
-    public static void inputString(String[] num) {
-        System.out.println("");
-        System.out.println("===========================");
-        System.out.println("Sumary two numbers");
-        String[] position = { "first", "second" };
-        Scanner sc = new Scanner(System.in);
-        for (int i = 0; i < num.length; i++) {
-            System.out.print("Input the " + position[i] + " number: ");
-            num[i] = sc.nextLine();
-        }
-        sc.close();
-    }
+    // public static void inputString(String[] num) {
+    // System.out.println("");
+    // System.out.println("===========================");
+    // System.out.println("Sumary two numbers");
+    // String[] position = { "first", "second" };
+    // Scanner sc = new Scanner(System.in);
+    // for (int i = 0; i < num.length; i++) {
+    // System.out.print("Input the " + position[i] + " number: ");
+    // num[i] = sc.nextLine();
+    // }
+    // sc.close();
+    // }
 
     public static void inputArray(int[] arr, String num) {
         for (int i = 0; i < num.length(); i++) {
@@ -33,7 +30,7 @@ public class SumString {
         }
     }
 
-    public static void output(int[] num) {
+    public static String output(int[] num) {
         String out = "";
         int end = num.length;
         if (num[end - 1] == 0) {
@@ -42,10 +39,7 @@ public class SumString {
         for (int i = 0; i < end; i++) {
             out = num[i] + out;
         }
-        System.out.println("");
-        System.out.println("Result is: " + out);
-        System.out.println("===========================");
-        System.out.println("");
+        return out;
     }
 
     public static int[] sumaryString(int[] num1, int[] num2) {
