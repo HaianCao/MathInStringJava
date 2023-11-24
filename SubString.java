@@ -1,66 +1,89 @@
+import java.util.Scanner;
+
 public class SubString {
     public static void main(String[] args) {
-        System.out.println(Integer.parseInt(subStringOut(args[0], args[1])));
+        String[] num = { "", "" };
+        inputString(num);
+        int length = Math.max(num[0].length(), num[1].length());
+        int[] firstNum = new int[length];
+        int[] secondNum = new int[length];
+        inputArray(firstNum, num[0]);
+        inputArray(secondNum, num[1]);
+        int[] result = new int[length];
+        result = subtractString(firstNum, secondNum);
+        output(result);
     }
 
-    public static String subStringOut(String a, String b) {
-        // Output string
-        String sub = "";
+    public static void inputString(String[] num) {
+        System.out.println("");
+        System.out.println("===========================");
+        System.out.println("Subtract two numbers");
+        String[] position = { "first", "second" };
+        Scanner sc = new Scanner(System.in);
+        for (int i = 0; i < num.length; i++) {
+            System.out.print("Input the " + position[i] + " number: ");
+            num[i] = sc.nextLine();
+        }
+        sc.close();
+    }
 
-        // Check condition when length of a less or equal or greater than b
-        if (a.length() < b.length()) {
-            sub = "-" + subString(b, a);
-        } else if (a.length() == b.length()) {
-            int check = 0;
-            // Check if any number of b is less than a which means b < a
-            for (int i = 0; i < a.length(); i++) {
-                int checkA = Integer.parseInt(String.valueOf(a.charAt(i)));
-                int checkB = Integer.parseInt(String.valueOf(b.charAt(i)));
-                if (checkA < checkB) {
-                    check = 1;
-                    break;
-                }
-            }
-            // Add minus if the calculation result in negative value
-            if (check == 1) {
-                sub = "-" + subString(b, a);
+    public static void inputArray(int[] arr, String num) {
+        for (int i = 0; i < num.length(); i++) {
+            arr[i] = Integer.parseInt(Character.toString(num.charAt(num.length() - 1 - i)));
+        }
+    }
+
+    public static void output(int[] num) {
+        String out = "";
+        int end = num.length;
+        if (num[end - 1] == 0) {
+            end -= 1;
+        }
+        for (int i = 0; i < end; i++) {
+            out = num[i] + out;
+        }
+        System.out.println("");
+        System.out.println("Result is: " + out);
+        System.out.println("===========================");
+        System.out.println("");
+    }
+
+    public static void swap(int[][] arr) {
+        int[] temp = arr[0];
+        arr[0] = arr[1];
+        arr[1] = temp;
+    }
+
+    public static void check(int[][] arr) {
+        for (int i = arr[0].length - 1; i >= 0; i--) {
+            if (arr[0][i] < arr[1][i]) {
+                swap(arr);
+                break;
             } else {
-                sub = subString(a, b);
+                break;
             }
-        } else {
-            sub = subString(a, b);
         }
-        return sub;
     }
 
-    public static String subString(String a, String b) {
-        // After being processed, string a will always greater than string b
-        String result = "";
+    public static int[] subtract(int[] result, int[] num1, int[] num2) {
         int carry = 0;
-        int n1 = a.length();
-        int n2 = b.length();
-        // Reverse string a and b
-        a = new StringBuilder(a).reverse().toString();
-        b = new StringBuilder(b).reverse().toString();
-        // Add "0" to string b so that it will have the same length as string a
-        for (int i = 1; i <= n1 - n2; i++) {
-            b += "0";
-        }
-        // Subtraction of 2 string
-        for (int i = 0; i < n1; i++) {
-            int x1 = Integer.parseInt(String.valueOf(a.charAt(i)));
-            int x2 = Integer.parseInt(String.valueOf(b.charAt(i)));
-            int sub;
-            if (x1 >= x2 + carry) {
-                sub = x1 - x2 - carry;
+        for (int i = 0; i < num1.length; i++) {
+            if (num1[i] >= num2[i] + carry) {
+                result[i] = num1[i] - num2[i] - carry;
                 carry = 0;
             } else {
-                sub = x1 + 10 - x2 - carry;
+                result[i] = num1[i] + 10 - num2[i] - carry;
                 carry = 1;
             }
-            result += Integer.toString(sub);
         }
+        return result;
+    }
 
-        return new StringBuilder(result).reverse().toString();
+    public static int[] subtractString(int[] num1, int[] num2) {
+        int[][] arr = { num1, num2 };
+        check(arr);
+        int[] result = new int[num1.length];
+        result = subtract(result, arr[0], arr[1]);
+        return result;
     }
 }
