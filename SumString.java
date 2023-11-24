@@ -21,7 +21,7 @@ public class SumString {
         String[] position = { "first", "second" };
         Scanner sc = new Scanner(System.in);
         for (int i = 0; i < num.length; i++) {
-            System.out.print("Print the " + position[i] + " number: ");
+            System.out.print("Input the " + position[i] + " number: ");
             num[i] = sc.nextLine();
         }
         sc.close();
