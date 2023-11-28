@@ -1,15 +1,15 @@
-<p>TITTLE: Calculator (generate in string)</p>
+<h1>Calculator (executed as string)</h1>
 </br>
 <p>Description: Do every calculation but in string</p>
 <p>Menu of operators:</p>
 <ul>
-  - Sumary</br>
-  - Subtract</br>
-  - Multiply</br>
-  - Power</br>
+  <li>Sumary   ( + )</li>
+  <li>Subtract ( - )</li>
+  <li>Multiply ( * )</li>
+  <li>Power    ( ^ )</li>
 </ul>
-<p>How to use: &lt number &gt &lt operator &gt &lt number &gt</p>
-<p>And the program will output a result</p>
+<p>How to use: &ltnumber&gt &ltoperator&gt &ltnumber&gt</p>
+<p>And the program will output the result</p>
 </br>
 <p>Examples:</p>
 <p>Input calculation: 3284 + -584</p>
