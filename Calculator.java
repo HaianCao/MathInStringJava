@@ -46,7 +46,8 @@ public class Calculator {
             SubString sub = new SubString();
             if (num1.charAt(0) == '-') {
                 num1 = num1.substring(1);
-                return sub.generate(num1, num2);
+                String result = sub.generate(num2, num1);
+                return (sub.checkNegative() ? "-" : "") + result;
             } else {
                 num2 = num2.substring(1);
                 return sub.generate(num1, num2);

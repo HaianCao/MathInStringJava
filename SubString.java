@@ -50,13 +50,23 @@ public class SubString {
 
     // check if the first number is smaller than the second number
     public static void check(int[][] arr) {
-        for (int i = arr[0].length - 1; i >= 0; i--) {
-            if (arr[0][i] < arr[1][i]) {
-                swap(arr);
-                checkB = true;
-                break;
-            } else {
-                break;
+        if (arr[0][arr[0].length - 1] == arr[1][arr[0].length - 1]) {
+            for (int i = arr[0].length - 1; i >= 0; i--) {
+                if (arr[0][i] < arr[1][i]) {
+                    swap(arr);
+                    checkB = true;
+                    break;
+                }
+            }
+        } else {
+            for (int i = arr[0].length - 1; i >= 0; i--) {
+                if (arr[0][i] < arr[1][i]) {
+                    swap(arr);
+                    checkB = true;
+                    break;
+                } else {
+                    break;
+                }
             }
         }
     }
