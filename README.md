@@ -1,19 +1,19 @@
-TITTLE: Calculator (generate in string) </br>
+<p>TITTLE: Calculator (generate in string)</p>
 </br>
-Description: Do every calculation but in string </br>
-Menu of operators: </br>
-<li>
-  - Sumary</br>
-  - Subtract</br>
-  - Multiply</br>
-  - Power </br>
-</li>
-How to use: \<number\> \<operator\> \<number>\ </br>
-And the program will output a result</br>
+<p>Description: Do every calculation but in string</p>
+<p>Menu of operators:</p>
+<ul>
+  <td>Sumary</td>
+  <td>Subtract</td>
+  <td>Multiply</td>
+  <td>Power</td>
+</ul>
+<p>How to use: \<number\> \<operator\> \<number\></p>
+<p>And the program will output a result</p>
 </br>
-Examples:</br>
-Input calculation: 3284 + -584</br>
-Result is: 2700</br>
+<p>Examples:</p>
+<p>Input calculation: 3284 + -584</p>
+<p>Result is: 2700</p>
 </br>
-Input calculation: -34 - -65</br>
-Result is: 31</br>
+<p>Input calculation: -34 - -65</p>
+<p>Result is: 31</p>
