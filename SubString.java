@@ -1,6 +1,9 @@
 public class SubString {
     public String generate(String num1, String num2) {
         String[] num = { num1, num2 };
+        if (num1.equals(num2)) {
+            return "0";
+        }
         int length = Math.max(num[0].length(), num[1].length());
         int[] firstNum = new int[length];
         int[] secondNum = new int[length];
@@ -11,25 +14,14 @@ public class SubString {
         return output(result);
     }
 
-    // public static void inputString(String[] num) {
-    // System.out.println("");
-    // System.out.println("===========================");
-    // System.out.println("Subtract two numbers");
-    // String[] position = { "first", "second" };
-    // Scanner sc = new Scanner(System.in);
-    // for (int i = 0; i < num.length; i++) {
-    // System.out.print("Input the " + position[i] + " number: ");
-    // num[i] = sc.nextLine();
-    // }
-    // sc.close();
-    // }
-
+    // input string into an array
     public static void inputArray(int[] arr, String num) {
         for (int i = 0; i < num.length(); i++) {
             arr[i] = Integer.parseInt(Character.toString(num.charAt(num.length() - 1 - i)));
         }
     }
 
+    // reverse the array and output the result
     public static String output(int[] num) {
         String out = "";
         int end = num.length;
@@ -42,6 +34,7 @@ public class SubString {
         return out;
     }
 
+    // swap 2 numbers in array
     public static void swap(int[][] arr) {
         int[] temp = arr[0];
         arr[0] = arr[1];
@@ -50,10 +43,12 @@ public class SubString {
 
     public static boolean checkB = false;
 
-    public static boolean checkNegative() {
+    // check to know if the result is negative number or not
+    public boolean checkNegative() {
         return checkB;
     }
 
+    // check if the first number is smaller than the second number
     public static void check(int[][] arr) {
         for (int i = arr[0].length - 1; i >= 0; i--) {
             if (arr[0][i] < arr[1][i]) {
@@ -66,6 +61,7 @@ public class SubString {
         }
     }
 
+    // subtract of 2 numbers
     public static int[] subtract(int[] result, int[] num1, int[] num2) {
         int carry = 0;
         for (int i = 0; i < num1.length; i++) {
@@ -80,6 +76,7 @@ public class SubString {
         return result;
     }
 
+    // generate
     public static int[] subtractString(int[] num1, int[] num2) {
         int[][] arr = { num1, num2 };
         check(arr);

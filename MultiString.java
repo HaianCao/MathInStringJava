@@ -11,19 +11,7 @@ public class MultiString {
         return output(result);
     }
 
-    // public static void inputString(String[] num) {
-    // System.out.println("");
-    // System.out.println("===========================");
-    // System.out.println("Multiply two numbers");
-    // String[] position = { "first", "second" };
-    // Scanner sc = new Scanner(System.in);
-    // for (int i = 0; i < num.length; i++) {
-    // System.out.print("Input the " + position[i] + " number: ");
-    // num[i] = sc.nextLine();
-    // }
-    // sc.close();
-    // }
-
+    // check if 1 of 2 number is 0
     public static void check(String num1, String num2) {
         if (num1.length() == 1) {
             if (Integer.parseInt(num1) == 0) {

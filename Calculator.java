@@ -6,20 +6,20 @@ public class Calculator {
         System.out.print("Input calculation: ");
         String calculation = sc.nextLine();
         String[] spl = calculation.split(" ");
-        SubString sub = new SubString();
-        MultiString mul = new MultiString();
         switch (spl[1]) {
             case "+":
-                System.out.println(sumary(spl[0], spl[2]));
+                print(sumary(spl[0], spl[2]));
                 break;
             case "-":
-                System.out.println(subtract(spl[0], spl[2]));
+                print(subtract(spl[0], spl[2]));
                 break;
             case "*":
-                System.out.println(multiply(spl[0], spl[2]));
+                print(multiply(spl[0], spl[2]));
                 break;
-
             case "/":
+                break;
+            case "^":
+                print(power(spl[0], spl[2]));
                 break;
             default:
                 System.out.println("Error syntax");
@@ -28,6 +28,12 @@ public class Calculator {
         sc.close();
     }
 
+    // print the result
+    public static void print(String result) {
+        System.out.println("Result is: " + result);
+    }
+
+    // generate sumary of 2 numbers
     public static String sumary(String num1, String num2) {
         SumString sum = new SumString();
         if (num1.charAt(0) != '-' && num2.charAt(0) != '-') {
@@ -48,23 +54,24 @@ public class Calculator {
         }
     }
 
+    // generate subtract of 2 numbers
     public static String subtract(String num1, String num2) {
         SubString sub = new SubString();
         if (num1.charAt(0) != '-' && num2.charAt(0) != '-') {
             String subtr = sub.generate(num1, num2);
             if (sub.checkNegative()) {
-                return "-" + sub.generate(num1, num2);
+                return "-" + subtr;
             } else {
-                return sub.generate(num1, num2);
+                return subtr;
             }
         } else if (num1.charAt(0) == '-' && num2.charAt(0) == '-') {
             num1 = num1.substring(1);
             num2 = num2.substring(1);
             String subtr = sub.generate(num1, num2);
             if (sub.checkNegative()) {
-                return sub.generate(num1, num2);
+                return subtr;
             } else {
-                return "-" + sub.generate(num1, num2);
+                return "-" + subtr;
             }
         } else if (num1.charAt(0) == '-' && num2.charAt(0) != '-') {
             SumString suma = new SumString();
@@ -75,6 +82,7 @@ public class Calculator {
         }
     }
 
+    // generate multiply of 2 numbers
     public static String multiply(String num1, String num2) {
         MultiString multi = new MultiString();
         if (num1.charAt(0) == '-' && num2.charAt(0) == '-') {
@@ -87,6 +95,35 @@ public class Calculator {
             return "-" + multi.generate(num1, num2.substring(1));
         } else {
             return multi.generate(num1, num2);
+        }
+    }
+
+    // generate power of 2 numbers
+    public static String power(String num, String powNum) {
+        PowString pow = new PowString();
+        if (powNum == "0") {
+            return "1";
+        }
+        if (num.charAt(0) == '-') {
+            if (powNum.charAt(0) == '-') {
+                if (Integer.parseInt(Character.toString(powNum.charAt(powNum.length() - 1))) % 2 == 0) {
+                    return "1/" + pow.generate(num.substring(1), powNum.substring(1));
+                } else {
+                    return "-1/" + pow.generate(num.substring(1), powNum.substring(1));
+                }
+            } else {
+                if (Integer.parseInt(Character.toString(powNum.charAt(powNum.length() - 1))) % 2 == 0) {
+                    return pow.generate(num.substring(1), powNum);
+                } else {
+                    return "-" + pow.generate(num.substring(1), powNum);
+                }
+            }
+        } else {
+            if (powNum.charAt(0) == '-') {
+                return "1/" + pow.generate(num, powNum.substring(1));
+            } else {
+                return pow.generate(num, powNum);
+            }
         }
     }
 }

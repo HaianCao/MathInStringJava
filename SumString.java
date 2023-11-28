@@ -11,25 +11,14 @@ public class SumString {
         return output(result);
     }
 
-    // public static void inputString(String[] num) {
-    // System.out.println("");
-    // System.out.println("===========================");
-    // System.out.println("Sumary two numbers");
-    // String[] position = { "first", "second" };
-    // Scanner sc = new Scanner(System.in);
-    // for (int i = 0; i < num.length; i++) {
-    // System.out.print("Input the " + position[i] + " number: ");
-    // num[i] = sc.nextLine();
-    // }
-    // sc.close();
-    // }
-
+    // input string into an array
     public static void inputArray(int[] arr, String num) {
         for (int i = 0; i < num.length(); i++) {
             arr[i] = Integer.parseInt(Character.toString(num.charAt(num.length() - 1 - i)));
         }
     }
 
+    // reverse the array and output the result
     public static String output(int[] num) {
         String out = "";
         int end = num.length;
@@ -42,6 +31,7 @@ public class SumString {
         return out;
     }
 
+    // sumary of 2 numbers
     public static int[] sumaryString(int[] num1, int[] num2) {
         int carry = 0;
         int[] result = new int[Math.max(num1.length, num2.length) + 1];
