@@ -22,14 +22,14 @@ public class SubString {
     }
 
     // reverse the array and output the result
-    public static String output(int[] num) {
+    public static String output(int[] arr) {
         String out = "";
-        int end = num.length;
-        if (num[end - 1] == 0) {
-            end -= 1;
+        int count = arr.length - 1;
+        while (arr[count] == 0) {
+            count--;
         }
-        for (int i = 0; i < end; i++) {
-            out = num[i] + out;
+        for (int i = 0; i <= count; i++) {
+            out = Integer.toString(arr[i]) + out;
         }
         return out;
     }
@@ -52,6 +52,9 @@ public class SubString {
     public static void check(int[][] arr) {
         if (arr[0][arr[0].length - 1] == arr[1][arr[0].length - 1]) {
             for (int i = arr[0].length - 1; i >= 0; i--) {
+                if (arr[0][i] > arr[1][i]) {
+                    break;
+                }
                 if (arr[0][i] < arr[1][i]) {
                     swap(arr);
                     checkB = true;

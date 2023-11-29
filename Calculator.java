@@ -19,6 +19,9 @@ public class Calculator {
             case "/":
                 print(divide(spl[0], spl[2]));
                 break;
+            case "%":
+                print(modulus(spl[0], spl[2]));
+                break;
             case "^":
                 print(power(spl[0], spl[2]));
                 break;
@@ -101,6 +104,7 @@ public class Calculator {
         }
     }
 
+    // divide 2 numbers
     public static String divide(String num1, String num2) {
         DivString div = new DivString();
         String result = "";
@@ -115,6 +119,29 @@ public class Calculator {
                 result = "-" + div.generate(num1, num2.substring(1));
             } else {
                 result = div.generate(num1, num2);
+            }
+        }
+        if (result.charAt(0) == '-' && result.charAt(1) == '0') {
+            result = "0";
+        }
+        return result;
+    }
+
+    // modulus of 2 numbers
+    public static String modulus(String num1, String num2) {
+        ModString mod = new ModString();
+        String result = "";
+        if (num1.charAt(0) == '-') {
+            if (num2.charAt(0) == '-') {
+                result = mod.generate(num1.substring(1), num2.substring(1));
+            } else {
+                result = "-" + mod.generate(num1.substring(1), num2);
+            }
+        } else {
+            if (num2.charAt(0) == '-') {
+                result = "-" + mod.generate(num1, num2.substring(1));
+            } else {
+                result = mod.generate(num1, num2);
             }
         }
         if (result.charAt(0) == '-' && result.charAt(1) == '0') {

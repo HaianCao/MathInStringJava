@@ -3,10 +3,12 @@
 <p>Description: Do every calculation but in string</p>
 <p>Menu of operators:</p>
 <ul>
-  <li>Sumary   ( + )</li>
-  <li>Subtract ( - )</li>
-  <li>Multiply ( * )</li>
-  <li>Power    ( ^ )</li>
+  <li>Addition ( + )</li>
+  <li>Subtraction ( - )</li>
+  <li>Multiplication ( * )</li>
+  <li>Division ( / )</li>
+  <li>Modulus ( % )</li>
+  <li>Power ( ^ )</li>
 </ul>
 <p>How to use: &ltnumber&gt &ltoperator&gt &ltnumber&gt</p>
 <p>And the program will output the result</p>
