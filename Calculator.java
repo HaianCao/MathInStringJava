@@ -17,6 +17,7 @@ public class Calculator {
                 print(multiply(spl[0], spl[2]));
                 break;
             case "/":
+                print(divide(spl[0], spl[2]));
                 break;
             case "^":
                 print(power(spl[0], spl[2]));
@@ -98,6 +99,28 @@ public class Calculator {
         } else {
             return multi.generate(num1, num2);
         }
+    }
+
+    public static String divide(String num1, String num2) {
+        DivString div = new DivString();
+        String result = "";
+        if (num1.charAt(0) == '-') {
+            if (num2.charAt(0) == '-') {
+                result = div.generate(num1.substring(1), num2.substring(1));
+            } else {
+                result = "-" + div.generate(num1.substring(1), num2);
+            }
+        } else {
+            if (num2.charAt(0) == '-') {
+                result = "-" + div.generate(num1, num2.substring(1));
+            } else {
+                result = div.generate(num1, num2);
+            }
+        }
+        if (result.charAt(0) == '-' && result.charAt(1) == '0') {
+            result = "0";
+        }
+        return result;
     }
 
     // generate power of 2 numbers

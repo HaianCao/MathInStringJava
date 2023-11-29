@@ -15,13 +15,13 @@ public class MultiString {
     public static void check(String num1, String num2) {
         if (num1.length() == 1) {
             if (Integer.parseInt(num1) == 0) {
-                System.out.println(0);
+                System.out.println("Result is: " + 0);
                 System.exit(0);
             }
         }
         if (num2.length() == 1) {
             if (Integer.parseInt(num2) == 0) {
-                System.out.println(0);
+                System.out.println("Result is: " + 0);
                 System.exit(0);
             }
         }
