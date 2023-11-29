@@ -50,7 +50,8 @@ public class Calculator {
                 return (sub.checkNegative() ? "-" : "") + result;
             } else {
                 num2 = num2.substring(1);
-                return sub.generate(num1, num2);
+                String result = sub.generate(num1, num2);
+                return (sub.checkNegative() ? "-" : "") + result;
             }
         }
     }
