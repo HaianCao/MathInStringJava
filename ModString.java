@@ -7,7 +7,7 @@ public class ModString {
     }
 
     public static void check(String num1, String num2) {
-        if (Integer.parseInt(num2) == 0) {
+        if (num2 == "0") {
             System.out.println("Error: Divided by 0");
             System.exit(0);
         }
